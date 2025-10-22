@@ -15,30 +15,71 @@ html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,
 .brand img{width:28px;height:28px}
 .nav a{color:#e7efff;text-decoration:none;margin:0 12px;font-size:14px;opacity:.9}
 .nav a:hover{opacity:1}
+/* Sección principal (hero) */
 .hero {
   position: relative;
   background: 
     linear-gradient(
-      rgba(0, 0, 0, 0.55),   /* parte superior más oscura */
-      rgba(0, 0, 0, 0.45),   /* transición media */
-      rgba(0, 0, 0, 0.55)    /* parte inferior más oscura */
+      rgba(0, 0, 0, 0.55),
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.55)
     ),
-    url('assets/newyork.jpg'); /* la imagen de fondo */
+    url('assets/newyork.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: white;
   text-align: center;
-  padding: 120px 20px; /* margen superior e inferior para que respire */
+  padding: 120px 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInHero 1.2s ease-out forwards;
 }
 
-.hero h1,
+/* Animación general del hero */
+@keyframes fadeInHero {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación para los textos */
+.hero h1 {
+  position: relative;
+  z-index: 2;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInText 1.5s ease-out forwards;
+  animation-delay: 0.7s;
+}
+
 .hero p {
   position: relative;
-  z-index: 2; /* asegura que el texto quede encima del degradado */
+  z-index: 2;
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInText 1.5s ease-out forwards;
+  animation-delay: 1s;
 }
 
+/* Animación del texto */
+@keyframes fadeInText {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Capa semitransparente sobre la imagen */
 .hero::before {
   content: "";
   position: absolute;
@@ -47,19 +88,27 @@ html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,
   z-index: 1;
 }
 
+/* Botones */
 .hero .btn {
   position: relative;
   z-index: 2;
-  background-color: rgba(255, 115, 0, 0.9); /* color del botón */
+  background-color: rgba(255, 115, 0, 0.9);
   border: none;
   color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
   transition: 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInText 1.5s ease-out forwards;
+  animation-delay: 1.3s;
 }
 
 .hero .btn:hover {
   background-color: rgba(255, 115, 0, 1);
+  transform: scale(1.05);
 }
-
 .h1{font-size:52px;line-height:1.1;margin:0 0 12px}
 .lead{font-size:20px;opacity:.95;max-width:720px}
 .cta{display:flex;gap:14px;margin-top:24px}
