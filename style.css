@@ -170,3 +170,60 @@ html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,
 .btn-primary:hover {
   background: #e45c00;
 }
+/* === HERO a pantalla completa, foto más clara y texto legible === */
+.hero{
+  position: relative;
+  min-height: 100vh;                /* ocupa toda la altura visible */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  /* FOTO + degradado suave (más claro) */
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.25),             /* arriba más claro */
+      rgba(0,0,0,0.20),             /* centro */
+      rgba(0,0,0,0.25)              /* abajo más claro */
+    ),
+    url('assets/newyork.jpg');      /* o el nombre que estés usando */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;     /* efecto sutil tipo parallax */
+  color:#fff;
+  padding: 0 20px;                   /* el alto ya lo da min-height */
+}
+
+/* Texto muy legible sobre foto */
+.hero h1,
+.hero p{
+  text-shadow: 0 2px 10px rgba(0,0,0,.55);
+}
+
+/* Botonera centrada */
+.hero .container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+}
+.cta{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:14px;
+}
+
+/* Por si queda algún resto del gráfico/linea naranja */
+.hero-card,
+.hero .trend{ display:none !important; }
+
+/* Si en móvil la foto molesta al texto, oscurecemos un poco */
+@media (max-width: 768px){
+  .hero{
+    background:
+      linear-gradient(rgba(0,0,0,.38), rgba(0,0,0,.34), rgba(0,0,0,.38)),
+      url('assets/newyork.jpg');
+  }
+}
