@@ -227,3 +227,65 @@ html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,
       url('assets/newyork.jpg');
   }
 }
+/* === BOTONES PREMIUM DORADOS CON EFECTO DE BRILLO === */
+.hero .btn {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(135deg, #d4af37, #f7e27d); /* dorado degradado */
+  color: #fff;
+  border: none;
+  padding: 14px 34px;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden; /* necesario para el brillo */
+  transition: all 0.3s ease;
+}
+
+/* Animación de brillo */
+.hero .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75px;
+  width: 50px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: skewX(-25deg);
+  transition: 0.5s;
+}
+
+/* Cuando pasas el ratón: brillo en movimiento */
+.hero .btn:hover::before {
+  left: 130%;
+  transition: 0.5s;
+}
+
+/* Hover general */
+.hero .btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #f9e57a, #d4af37);
+  box-shadow: 0 6px 20px rgba(212,175,55,0.4);
+}
+
+/* Efecto “clic” */
+.hero .btn:active {
+  transform: scale(0.97);
+}
+
+/* Si hay versión fantasma (sin fondo) */
+.hero .btn-ghost {
+  background: transparent;
+  color: #f7e27d;
+  border: 2px solid #f7e27d;
+  box-shadow: none;
+}
+
+.hero .btn-ghost:hover {
+  background: #f7e27d;
+  color: #222;
+}
