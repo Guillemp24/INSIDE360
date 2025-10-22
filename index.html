@@ -10,18 +10,36 @@
 </head>
 <body>
 
-<header class="header">
-  <div class="container header-inner">
-    <div class="brand"><img src="assets/logo.svg" alt=""><span>INSIDE360</span></div>
-    <nav class="nav">
-      <a href="#inicio">Inicio</a>
-      <a href="#quienes">Quiénes somos</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#tarifas">Tarifas</a>
-      <a href="#resultados">Resultados</a>
-      <a href="#contacto">Contacto</a>
+<header class="site-header">
+  <div class="nav-shell">
+    <a href="#inicio" class="brand">
+      <img src="assets/logo.svg" alt="INSIDE360" />
+      <span>INSIDE360</span>
+    </a>
+
+    <nav class="nav-desktop">
+      <a href="#inicio" class="nav-link">Inicio</a>
+      <a href="#quienes" class="nav-link">Quiénes somos</a>
+      <a href="#servicios" class="nav-link">Servicios</a>
+      <a href="#tarifas" class="nav-link">Tarifas</a>
+      <a href="#resultados" class="nav-link">Resultados</a>
+      <a href="#contacto" class="nav-link">Contacto</a>
     </nav>
+
+    <button class="nav-toggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
   </div>
+
+  <!-- Menú móvil -->
+  <nav class="nav-mobile" id="mobileMenu">
+    <a href="#inicio" class="nav-link">Inicio</a>
+    <a href="#quienes" class="nav-link">Quiénes somos</a>
+    <a href="#servicios" class="nav-link">Servicios</a>
+    <a href="#tarifas" class="nav-link">Tarifas</a>
+    <a href="#resultados" class="nav-link">Resultados</a>
+    <a href="#contacto" class="nav-link">Contacto</a>
+  </nav>
 </header>
 
 <section id="inicio" class="hero">
