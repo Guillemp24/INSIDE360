@@ -15,7 +15,51 @@ html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,
 .brand img{width:28px;height:28px}
 .nav a{color:#e7efff;text-decoration:none;margin:0 12px;font-size:14px;opacity:.9}
 .nav a:hover{opacity:1}
-.hero{background:linear-gradient(90deg,var(--brand-blue),var(--brand-teal));color:#fff;padding:96px 0}
+.hero {
+  position: relative;
+  background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.55),   /* parte superior más oscura */
+      rgba(0, 0, 0, 0.45),   /* transición media */
+      rgba(0, 0, 0, 0.55)    /* parte inferior más oscura */
+    ),
+    url('assets/newyork.jpg'); /* la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  text-align: center;
+  padding: 120px 20px; /* margen superior e inferior para que respire */
+}
+
+.hero h1,
+.hero p {
+  position: relative;
+  z-index: 2; /* asegura que el texto quede encima del degradado */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.hero .btn {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255, 115, 0, 0.9); /* color del botón */
+  border: none;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.hero .btn:hover {
+  background-color: rgba(255, 115, 0, 1);
+}
+
 .h1{font-size:52px;line-height:1.1;margin:0 0 12px}
 .lead{font-size:20px;opacity:.95;max-width:720px}
 .cta{display:flex;gap:14px;margin-top:24px}
