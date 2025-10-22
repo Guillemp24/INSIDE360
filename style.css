@@ -333,3 +333,55 @@ html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,
   left: 130%;
   transition: 0.5s;
 }
+/* ===== Header negro metálico difuminado ===== */
+.site-header{
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.nav-shell{
+  max-width: 1180px; margin: 10px auto; padding: 10px 14px;
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px;
+  background: rgba(0,0,0,0.60);              /* negro translúcido */
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+
+/* Marca (logo + texto) */
+.brand{ display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:#f2c94c; font-weight:800; }
+.brand img{ width: 24px; height: 24px; object-fit: contain; } /* logo MÁS PEQUEÑO y discreto */
+.brand span{ font-size: 14px; letter-spacing:.3px; opacity:.85; }
+
+/* Menú desktop centrado */
+.nav-desktop{ display:flex; justify-content:center; gap:12px; }
+
+/* Enlaces con mismo estilo que los botones: borde dorado, fondo transparente */
+.nav-link{
+  color:#f2c94c; text-decoration:none; font-weight:700; font-size:14px;
+  padding:8px 14px; border:2px solid #f2c94c; border-radius:10px;
+  transition:.25s ease; line-height:1; display:inline-block;
+  background: transparent;
+}
+.nav-link:hover{ background:#f2c94c; color:#111; transform: translateY(-1px); box-shadow:0 0 10px rgba(242,201,76,.35); }
+
+/* Hamburguesa (móvil) */
+.nav-toggle{ display:none; width:42px; height:38px; border:1px solid rgba(255,255,255,.15);
+  border-radius:10px; background: rgba(255,255,255,.04); align-items:center; justify-content:center; gap:4px; cursor:pointer; }
+.nav-toggle span{ width:22px; height:2px; background:#fff; display:block; border-radius:2px; }
+
+/* Menú móvil oculto */
+.nav-mobile{ display:none; flex-direction:column; gap:8px; max-width:1180px; margin:6px auto 0; padding:12px;
+  background: rgba(0,0,0,.72); border:1px solid rgba(255,255,255,.06); border-radius:14px; }
+.nav-mobile .nav-link{ text-align:center; }
+
+/* Scroll state: un poco más oscuro al bajar */
+.site-header.scrolled .nav-shell{ background: rgba(0,0,0,0.72); }
+
+/* Responsive */
+@media (max-width: 960px){
+  .nav-desktop{ display:none; }
+  .nav-toggle{ display:flex; margin-left: auto; }
+}
+.nav-mobile.open{ display:flex; }
