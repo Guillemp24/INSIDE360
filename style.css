@@ -184,3 +184,122 @@ section{ scroll-margin-top: calc(var(--header-h) + 12px); }
    FIN DE ARCHIVO
    ============== */
 
+/*************** ESTILO VISUAL POR SECCIONES ***************/
+
+/* ===== QUIÉNES SOMOS ===== */
+#quienes {
+  background: linear-gradient(180deg, #ffffff 0%, #f5f8ff 100%);
+  color: #0b1320;
+}
+#quienes .card {
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#quienes .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== SERVICIOS ===== */
+#servicios {
+  background: linear-gradient(180deg, #f1f6ff 0%, #e8f2ff 100%);
+}
+#servicios h2 {
+  color: var(--brand-blue);
+}
+#servicios .card {
+  background: #fff;
+  border: 1px solid #e0ebff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#servicios .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== TARIFAS ===== */
+#tarifas {
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+}
+#tarifas .card {
+  background: #fff;
+  border: 1px solid #e7edf7;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#tarifas .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* Precio destacado */
+#tarifas .price {
+  color: var(--brand-blue);
+  font-weight: 800;
+  font-size: 28px;
+}
+
+/* ===== RESULTADOS ===== */
+#resultados {
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+#resultados .card {
+  background: #fff;
+  border: 1px solid #e7edf7;
+}
+#resultados .hero-bars .hero-bar {
+  background: var(--brand-blue);
+  border-radius: 6px;
+}
+#resultados .kpi {
+  background: #fff;
+  border: 1px solid #e6ebf5;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+}
+#resultados .v {
+  color: var(--brand-blue);
+  font-size: 32px;
+}
+
+/* ===== CONTACTO ===== */
+#contacto {
+  background: linear-gradient(180deg, #0f172a 0%, #0b1320 100%) !important;
+  color: #ffffff !important;
+}
+#contacto .btn-primary {
+  background: #ffffff !important;
+  color: #0b1320 !important;
+  border: none !important;
+  font-weight: 700;
+}
+#contacto .btn-ghost {
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+#contacto .btn-ghost:hover {
+  background: #ffffff;
+  color: #111;
+}
+
+/* ===== EFECTOS DE APARICIÓN (reveal) ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== TRANSICIONES SUAVES ===== */
+.card, .btn, .nav-link {
+  transition: all 0.25s ease-in-out;
+}
+
+/* ===== TIPOGRAFÍA GLOBAL ===== */
+h1, h2, h3 {
+  letter-spacing: 0.3px;
+}
+p.p {
+  color: #374151;
+}
