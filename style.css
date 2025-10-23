@@ -678,3 +678,29 @@ body::before{
   padding-top: var(--header-offset); /* para que el texto no se esconda */
   background: url("assets/newyork.jpg") center top / cover no-repeat;
 }
+/* ==== Arreglo final: la foto llega hasta arriba y a los lados ==== */
+
+/* Evitar “bandas” laterales por desbordes */
+html, body { height: 100%; overflow-x: hidden; }
+
+/* La foto es el FONDO de toda la página, también detrás del header */
+body{
+  background: #000 url("assets/newyork.jpg") center top / cover no-repeat fixed !important;
+}
+
+/* El header se ve por encima de la foto */
+.site-header{ position: sticky; top: 0; z-index: 1000; }
+
+/* Reseteo de pruebas anteriores para el hero */
+.hero{
+  /* nada de 100vw, ni márgenes negativos */
+  width: auto !important;
+  margin-left: 0 !important;
+  margin-top: 0 !important;
+
+  /* el texto no queda tapado por el header */
+  padding-top: var(--header-offset) !important;
+
+  /* que NO ponga otro fondo distinto al del body */
+  background: transparent !important;
+}
