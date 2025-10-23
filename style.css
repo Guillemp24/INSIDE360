@@ -621,3 +621,38 @@ body{ background:#0b0b0c; }
   position: relative;
   z-index: 10;
 }
+/* ===== HERO FULL-BLEED (de borde a borde y bajo el header) ===== */
+
+/* 1) El header siempre por encima */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* 2) El hero ocupa TODO el ancho de la ventana,
+      sube hasta el borde superior y la imagen queda detrás del header */
+.hero{
+  position: relative;
+  z-index: 0;
+
+  /* full-bleed: ignora el ancho de los contenedores centrados */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);   /* elimina las bandas negras de los lados */
+
+  /* que la imagen suba bajo el header */
+  margin-top: calc(-1 * var(--header-offset)); /* usa el valor que ya calculamos en JS */
+  padding-top: var(--header-offset);           /* evita que el texto quede tapado */
+
+  min-height: 100vh;                 /* ocupa toda la altura visible */
+  background-size: cover;
+  background-position: center top;   /* ancla arriba para que “suba” bien */
+  background-repeat: no-repeat;
+}
+
+/* (por si hay una .container dentro del hero) evita que contraiga el ancho */
+.hero > .container{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
