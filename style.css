@@ -518,3 +518,43 @@ section:first-of-type{ padding-top:0 !important; margin-top:0 !important; }
 
 /* Fondo base por si hay algún hueco por transición */
 body{ background:#0b0b0c; }
+/* === Ajustes finos para logo y texto del brand === */
+:root{
+  /* Tamaño del logo dentro del marco verde */
+  --brand-logo-size: 72px;     /* súbelo/bájalo: 68–80px según necesites */
+  /* Desplazamiento del texto INSIDE360 hacia la derecha (línea roja) */
+  --brand-text-offset: 140px;  /* aumenta si quieres más separación */
+  /* Tamaño del texto INSIDE360 */
+  --brand-text-size: 24px;
+}
+
+/* El bloque de marca ocupa una franja amplia para que quepa el desplazamiento */
+.brand{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: calc(var(--brand-logo-size) + 8px);
+  min-width: calc(240px + var(--brand-text-offset)); /* reserva hueco para el texto */
+}
+
+/* Logo dentro del marco verde */
+.brand-logo{
+  height: var(--brand-logo-size);
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 4px rgba(212,175,55,.35));
+}
+
+/* Texto INSIDE360 colocado exactamente a la derecha (línea roja) */
+.brand-text{
+  font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  font-weight: 700;
+  font-size: var(--brand-text-size);
+  letter-spacing: .6px;
+  color:#f2c94c;
+  opacity:.95;
+
+  /* magia: lo colocamos con un desplazamiento fijo */
+  margin-left: var(--brand-text-offset);
+}
