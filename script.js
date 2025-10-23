@@ -1,39 +1,51 @@
-const onScroll = () => {
-  document.querySelectorAll('.reveal').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 80) {
-      el.classList.add('show');
-    }
-  });
-};
-document.addEventListener('scroll', onScroll);
-document.addEventListener('DOMContentLoaded', onScroll);
-// Toggle menú móvil
+/* === ANIMACIONES reveal (aparecer al hacer scroll) === */
+(function () {
+  const els = document.querySelectorAll('.reveal');
+
+  // Si el navegador no soporta IntersectionObserver, muestra todo sin animación
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(el => el.classList.add('show'));
+    return;
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -10% 0px' }
+  );
+
+  els.forEach((el) => io.observe(el));
+})();
+
+/* === Toggle menú móvil === */
 const toggle = document.querySelector('.nav-toggle');
 const mobileMenu = document.getElementById('mobileMenu');
-if (toggle && mobileMenu){
-  toggle.addEventListener('click', ()=> mobileMenu.classList.toggle('open'));
+if (toggle && mobileMenu) {
+  toggle.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => mobileMenu.classList.remove('open'))
+  );
 }
 
-// Header más oscuro al hacer scroll
+/* === Header más oscuro al hacer scroll === */
 const header = document.querySelector('.site-header');
-window.addEventListener('scroll', ()=>{
+window.addEventListener('scroll', () => {
   if (window.scrollY > 8) header.classList.add('scrolled');
   else header.classList.remove('scrolled');
 });
-/* ===== Compensar exactamente la altura del header para evitar huecos ===== */
-function setHeaderOffset(){
+
+/* === Ajustar altura del header para el offset correcto === */
+function setHeaderOffset() {
   const header = document.querySelector('.site-header');
-  if(!header) return;
-  const h = header.offsetHeight; // altura real del header ahora mismo
+  if (!header) return;
+  const h = header.offsetHeight;
   document.documentElement.style.setProperty('--header-offset', h + 'px');
 }
 window.addEventListener('load', setHeaderOffset);
 window.addEventListener('resize', setHeaderOffset);
-
-/* (ya lo tenías) Oscurecer encabezado al hacer scroll */
-const headerEl = document.querySelector('.site-header');
-window.addEventListener('scroll', ()=>{
-  if(window.scrollY > 10) headerEl.classList.add('scrolled');
-  else headerEl.classList.remove('scrolled');
-});
