@@ -869,3 +869,80 @@ section { scroll-margin-top: calc(var(--header-h) + 12px) !important; }
 
 /* Menú móvil por encima si se abre */
 .nav-mobile { z-index:1100 !important; }
+/************* OVERRIDES FINALES (PÉGALO AL FINAL DEL CSS) *************/
+
+/* A) El body NO debe tener la foto fija ni pseudo-fondo */
+body { background: #f7f9fc !important; position: static !important; }
+body::before { content: none !important; }
+
+/* B) Compensación de ancla y header por encima */
+:root { --header-h: 96px; } /* ajusta si tu cabecera mide distinto */
+html { scroll-behavior: smooth; }
+section { scroll-margin-top: calc(var(--header-h) + 12px) !important; }
+.site-header { position: sticky !important; top: 0 !important; z-index: 1000 !important; }
+
+/* C) HERO: sin parallax ni inventos de ancho, sin márgenes negativos */
+.hero {
+  width: auto !important;
+  margin: 0 !important;                 /* elimina márgenes raros */
+  padding-top: var(--header-h) !important; /* evita que el header tape el título */
+  position: relative !important;
+  z-index: 0 !important;
+  background-attachment: scroll !important; /* adiós parallax */
+  background: 
+    linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.28), rgba(0,0,0,.35)),
+    url('assets/newyork.jpg') center/cover no-repeat !important;
+  overflow: hidden !important;
+}
+
+/* La capa oscura del hero solo cubre el hero, no “sube” ni “baja” */
+.hero::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important; left: 0 !important;
+  width: 100% !important; height: 100% !important;
+  background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.45), rgba(0,0,0,.55)) !important;
+  z-index: 1 !important;
+}
+.hero * { position: relative !important; z-index: 2 !important; }
+
+/* Quita decoraciones que crean huecos debajo del hero */
+.trend { display: none !important; }
+
+/* D) Todas las secciones por encima del hero y con fondo sólido */
+.section,
+#quienes, #servicios, #tarifas, #resultados, #contacto,
+.pricing, .footer {
+  position: relative !important;
+  z-index: 2 !important;
+  background: #ffffff !important;       /* evita ver la foto por detrás */
+  margin-top: 0 !important;
+}
+
+/* Mantén tus colores propios en secciones especiales */
+.alt { background: #f1f6ff !important; }
+.pricing { background: var(--brand-light) !important; }
+
+/* E) Contacto: visible y legible sí o sí */
+.section.contact {
+  background: linear-gradient(180deg, #0f172a 0%, #0b1320 100%) !important;
+  color: #ffffff !important;
+  min-height: 340px !important;
+  padding: 80px 20px !important;
+  z-index: 3 !important;  /* por si acaso */
+}
+.section.contact .h2,
+.section.contact .p,
+.section.contact a,
+.section.contact .btn { color: #ffffff !important; }
+.section.contact .btn.btn-primary {
+  background: #ffffff !important;
+  color: #0b1320 !important;
+  border: 1px solid #ffffff !important;
+}
+
+/* F) Menú móvil por encima cuando se abre */
+.nav-mobile { z-index: 1100 !important; }
+
+/* G) Limpieza de márgenes en títulos para evitar huecos visuales */
+.h1, .h2, .h3 { margin-top: 0 !important; }
