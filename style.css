@@ -610,3 +610,14 @@ body{ background:#0b0b0c; }
 /* Por si existen reglas antiguas que molestan, las neutralizamos */
 .brand img{ height: var(--brand-logo-size) !important; width: auto !important; }
 .brand span{ margin: 0 !important; }
+/* --- Quitar la franja negra entre header y fondo --- */
+.hero {
+  position: relative;
+  margin-top: -80px; /* súbelo o bájalo según la altura real del header */
+  z-index: 0;
+}
+
+.site-header {
+  position: relative;
+  z-index: 10;
+}
