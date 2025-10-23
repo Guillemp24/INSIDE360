@@ -704,3 +704,24 @@ body{
   /* que NO ponga otro fondo distinto al del body */
   background: transparent !important;
 }
+/* === Extender la capa oscura del hero hasta el borde superior === */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -80px;               /* sube la sombra bajo el encabezado */
+  left: 0;
+  width: 100%;
+  height: calc(100% + 80px); /* la hace un poco más alta para cubrir */
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.55)
+  );
+  z-index: 1;
+}
+
+/* asegurar que el texto esté por encima del oscurecimiento */
+.hero * {
+  position: relative;
+  z-index: 2;
+}
