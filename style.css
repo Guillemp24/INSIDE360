@@ -504,3 +504,17 @@ html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,
   color:#f2c94c;
   opacity:.95;
 }
+/* Elimina relleno extra en el primer bloque de la página */
+section:first-of-type{ padding-top:0 !important; margin-top:0 !important; }
+
+/* Hero ocupa toda la altura visible (descontando el header medido en JS) */
+:root{ --header-offset: 0px; }  /* la rellenaremos por JS */
+.hero{
+  margin-top: var(--header-offset);
+  min-height: calc(100vh - var(--header-offset));
+  background-size: cover;
+  background-position: center;
+}
+
+/* Fondo base por si hay algún hueco por transición */
+body{ background:#0b0b0c; }
