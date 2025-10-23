@@ -521,11 +521,11 @@ body{ background:#0b0b0c; }
 /* === Ajustes finos para logo y texto del brand === */
 :root{
   /* Tamaño del logo dentro del marco verde */
-  --brand-logo-size: 90px;     /* súbelo/bájalo: 68–80px según necesites */
+  --brand-logo-size: 200px;     /* súbelo/bájalo: 68–80px según necesites */
   /* Desplazamiento del texto INSIDE360 hacia la derecha (línea roja) */
   --brand-text-offset: 140px;  /* aumenta si quieres más separación */
   /* Tamaño del texto INSIDE360 */
-  --brand-text-size: 28px;
+  --brand-text-size: 50px;
 }
 
 /* El bloque de marca ocupa una franja amplia para que quepa el desplazamiento */
