@@ -8,9 +8,18 @@
   <link rel="stylesheet" href="style.css">
   <meta name="description" content="INSIDE360: auditoría comercial moderna. Observamos, analizamos y mejoramos la ejecución real de los equipos de ventas.">
 
+  <!-- Ajustes suaves + parches anti-solape/ocultación -->
   <style>
     html { scroll-behavior: smooth; }
     section { scroll-margin-top: 90px; }
+
+    /* Kill switch para evitar que nada quede oculto si falta el JS o hay caché del CSS */
+    .reveal { opacity: 1 !important; transform: none !important; }
+    .hero { background-attachment: scroll !important; position: relative !important; z-index: 0 !important; }
+    body::before { content: none !important; } /* por si en el pasado hubo fondo fijo global */
+    #quienes, #servicios, #tarifas, #resultados, #contacto, .section {
+      position: relative !important; z-index: 1 !important;
+    }
   </style>
 </head>
 <body>
@@ -126,7 +135,7 @@
       </div>
       <div class="card reveal">
         <span class="icon bg-blue"></span>
-        <h3>Análisis & KPIs</h3>
+        <h3>Análisis &amp; KPIs</h3>
         <ul class="p" style="margin:0; padding-left:18px">
           <li>Conversión por etapa, tiempo por oportunidad, cobertura y mix.</li>
           <li>Panel de control con línea base y evolución semanal.</li>
@@ -272,22 +281,6 @@
       <a class="btn btn-primary" href="mailto:contacto@insideviewconsulting.com">Solicitar diagnóstico</a>
       <a class="btn btn-ghost" href="#tarifas" style="border-color:#fff">Ver tarifas</a>
     </div>
-
-    <!-- (Opcional: futuro formulario) -->
-    <!--
-    <form class="p" style="margin-top:18px; max-width:560px; text-align:left">
-      <label for="c-nombre" class="sr-only">Nombre</label>
-      <input id="c-nombre" name="nombre" placeholder="Nombre" required
-             style="width:100%; padding:12px; border-radius:10px; border:1px solid #dbe3ef; margin-bottom:10px" />
-      <label for="c-email" class="sr-only">Email</label>
-      <input id="c-email" type="email" name="email" placeholder="Email" required
-             style="width:100%; padding:12px; border-radius:10px; border:1px solid #dbe3ef; margin-bottom:10px" />
-      <label for="c-msg" class="sr-only">Mensaje</label>
-      <textarea id="c-msg" name="mensaje" rows="4" placeholder="Cuéntanos qué necesitas"
-                style="width:100%; padding:12px; border-radius:10px; border:1px solid #dbe3ef; margin-bottom:12px"></textarea>
-      <button class="btn btn-primary" type="submit">Enviar</button>
-    </form>
-    -->
   </div>
 </section>
 
@@ -306,18 +299,48 @@
   </div>
 </footer>
 
+<!-- ✅ Script inline: menú móvil + reveal + ajuste de hero -->
 <script>
-  // Toggle menú móvil
-  const toggle = document.querySelector('.nav-toggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  if (toggle && mobileMenu) {
-    toggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-    });
-    mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    });
-  }
+  // Menú móvil
+  (function () {
+    const toggle = document.querySelector('.nav-toggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (toggle && mobileMenu) {
+      toggle.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+    }
+  })();
+
+  // Mostrar .reveal (animado si se puede; si no, visibles ya)
+  (function () {
+    const els = document.querySelectorAll('.reveal');
+
+    // Fallback inmediato: visibles por si algo falla
+    els.forEach(el => el.classList.add('show'));
+
+    if (!('IntersectionObserver' in window)) return;
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('show');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+    els.forEach(el => io.observe(el));
+  })();
+
+  // Evitar que el hero tape secciones: compensa la altura real del header
+  (function () {
+    const hero = document.querySelector('.hero');
+    const header = document.querySelector('.site-header');
+    if (!hero || !header) return;
+    const h = header.offsetHeight;
+    hero.style.marginTop = `-${h}px`;
+    hero.style.paddingTop = `${h}px`;
+  })();
 </script>
 
 </body>
