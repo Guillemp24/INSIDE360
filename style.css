@@ -827,3 +827,45 @@ section { scroll-margin-top: calc(var(--header-h) + 12px); }
 
 /* 7) (Opcional) Menú móvil por encima del resto si se abre */
 .nav-mobile { z-index: 1100; }
+/* ==== OVERRIDES URGENTES ==== */
+
+/* Fondo base sólido */
+html, body { background:#fff !important; }
+
+/* Compensación de ancla y header por encima */
+:root { --header-h: 88px; }
+html { scroll-behavior: smooth; }
+section { scroll-margin-top: calc(var(--header-h) + 12px) !important; }
+.site-header { position: sticky !important; top:0 !important; z-index: 1000 !important; }
+
+/* Hero: nada de fixed ni capas por encima */
+.hero {
+  position: relative !important;
+  z-index: 0 !important;
+  background-attachment: scroll !important;
+  margin-bottom: 0 !important;
+  overflow: hidden !important;
+}
+/* Elimina decoraciones que generan huecos */
+.hero::before, .hero::after, .trend { display:none !important; }
+
+/* Secciones: por encima del hero y con fondo sólido */
+.section, #quienes, #servicios, #tarifas, #resultados, #contacto, .pricing, .footer {
+  position: relative !important;
+  z-index: 1 !important;
+  background:#fff !important;
+  margin-top:0 !important;
+  padding-top:64px; padding-bottom:64px;
+}
+
+/* Contacto: asegúrate de que se vea */
+.section.contact {
+  background: #0b1320 !important;
+  color:#fff !important;
+  min-height:320px;
+  padding-top:80px; padding-bottom:80px;
+}
+.section.contact a, .section.contact .btn { color:#0b1320 !important; background:#fff !important; border:1px solid #fff !important; }
+
+/* Menú móvil por encima si se abre */
+.nav-mobile { z-index:1100 !important; }
