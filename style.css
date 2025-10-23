@@ -558,3 +558,55 @@ body{ background:#0b0b0c; }
   /* magia: lo colocamos con un desplazamiento fijo */
   margin-left: var(--brand-text-offset);
 }
+/* ==== FORZAR tamaño y posición de logo + texto en el header ==== */
+:root{
+  --brand-logo-size: 78px;      /* tú ajustas: 72–86px */
+  --brand-text-size: 24px;      /* 22–26px según veas */
+  --brand-text-offset: 150px;   /* distancia del texto respecto al borde izq. del brand */
+  --brand-area-width: 360px;    /* ancho reservado para el bloque de marca */
+}
+
+/* Reservamos ancho para la zona de marca (columna 1 del grid) */
+.nav-shell{
+  grid-template-columns: var(--brand-area-width) 1fr auto !important;
+  min-height: calc(var(--brand-logo-size) + 24px);
+}
+
+/* Bloque marca */
+.brand{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0; /* no usamos gap porque colocamos el texto de forma absoluta */
+  min-height: calc(var(--brand-logo-size) + 8px);
+  width: 100%;
+}
+
+/* LOGO: altura forzada (pisamos cualquier regla anterior) */
+.brand img.brand-logo{
+  height: var(--brand-logo-size) !important;
+  width: auto !important;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 0 4px rgba(212,175,55,.35));
+}
+
+/* TEXTO: colocado exactamente donde quieres (línea roja) */
+.brand .brand-text{
+  position: absolute;
+  left: var(--brand-text-offset) !important;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 !important;
+
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: var(--brand-text-size) !important;
+  letter-spacing: .6px;
+  color: #f2c94c;
+  opacity: .95;
+}
+
+/* Por si existen reglas antiguas que molestan, las neutralizamos */
+.brand img{ height: var(--brand-logo-size) !important; width: auto !important; }
+.brand span{ margin: 0 !important; }
