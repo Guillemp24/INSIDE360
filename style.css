@@ -656,3 +656,25 @@ body{ background:#0b0b0c; }
   margin: 0 auto;
   padding: 0 20px;
 }
+/* === La foto sube hasta arriba y queda también detrás del header === */
+body{
+  position: relative;
+  background: #000; /* por si la imagen tarda */
+}
+
+/* Pinta la MISMA imagen por detrás del header (bajo sus márgenes redondeados) */
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0 0 auto 0;   /* ocupa la parte superior de la ventana */
+  height: 60vh;        /* cuánto ocupa hacia abajo (ajústalo si quieres) */
+  background: url("assets/newyork.jpg") center top / cover no-repeat;
+  z-index: -1;         /* queda detrás de todo */
+}
+
+/* El hero ya no necesita “tirar” hacia arriba */
+.hero{
+  margin-top: 0 !important;
+  padding-top: var(--header-offset); /* para que el texto no se esconda */
+  background: url("assets/newyork.jpg") center top / cover no-repeat;
+}
