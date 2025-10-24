@@ -1,6 +1,6 @@
 /* =========================================================
    INSIDE360 — STYLE LIMPIO (consolidado)
-   Ajusta: --header-h si cambia la altura real del header
+   Mantiene diseño actual. Arregla contraste en Contacto.
    ========================================================= */
 
 :root{
@@ -13,7 +13,7 @@
   --header-h:96px; /* altura usada para compensar anclas */
 }
 
-/* Base */
+/* ===== Base ===== */
 *{ box-sizing:border-box; }
 html,body{
   margin:0; padding:0;
@@ -66,7 +66,6 @@ html,body{
 }
 .nav-mobile .nav-link{ text-align:center; }
 .nav-mobile.open{ display:flex; }
-
 @media (max-width:960px){
   .nav-desktop{ display:none; }
   .nav-toggle{ display:flex; margin-left:auto; }
@@ -117,7 +116,7 @@ html,body{
 .btn-ghost{ border:2px solid rgba(255,255,255,.85); color:#fff; }
 .btn-ghost:hover{ background:rgba(255,255,255,.12); }
 
-/* Elementos decorativos no usados que causaban huecos */
+/* Elementos decorativos no usados */
 .trend, .hero-card{ display:none; }
 
 /* =======================
@@ -129,7 +128,7 @@ section{ scroll-margin-top: calc(var(--header-h) + 12px); }
 .center{ text-align:center; }
 .p{ font-size:18px; opacity:.9; line-height:1.65; }
 
-/* Servicios */
+/* Tarjetas y rejillas */
 .cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:30px; }
 .card{
   background:#fff; border-radius:18px; padding:28px; border:1px solid #e8eef7;
@@ -140,38 +139,77 @@ section{ scroll-margin-top: calc(var(--header-h) + 12px); }
 .card h3{ margin:10px 0 6px; font-size:20px; color:var(--brand-dark); }
 .alt{ background:#f1f6ff; }
 
-/* Tarifas */
-.pricing{ background:var(--brand-light); }
-.price-top{ height:10px; border-radius:18px 18px 0 0; margin:-28px -28px 18px -28px; }
-.price{ font-size:26px; font-weight:800; color:var(--brand-blue); }
+.grid-2{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; align-items:center; }
 
 /* Resultados */
-.grid-2{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; align-items:center; }
 .hero-bars{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; height:190px; align-items:end; }
 .hero-bar{ background:#2b64c7; border-radius:8px; }
 .kpis{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
 .kpi{ background:#fff; border-radius:16px; padding:24px; text-align:center; border:1px solid #e8eef7; box-shadow:0 10px 24px rgba(0,0,0,.06); }
 .kpi .v{ font-size:34px; color:var(--brand-blue); font-weight:800; }
 
-/* Contacto */
-.section.contact{
+/* =======================
+   CONTACTO (fondo oscuro)
+   ======================= */
+.section.contact{ /* capa base oscura */
   background: linear-gradient(180deg, #0f172a 0%, #0b1320 100%);
   color:#fff; min-height:320px; padding:80px 0;
 }
-.section.contact .p{ color:#eaf6ff; }
-.section.contact .btn.btn-primary{ background:#fff; color:#0b1320; border:1px solid #fff; }
 
-/* Footer */
+/* Solo el párrafo superior (fuera de tarjetas) en azul claro */
+#contacto > .container > .p{ color:#eaf6ff; }
+
+/* Tarjetas blancas con texto oscuro (arreglo de contraste) */
+#contacto .cards .card{
+  background:#fff;
+  border:1px solid #e6ebf5;
+}
+#contacto .cards .card h3,
+#contacto .cards .card .p,
+#contacto .cards .card li,
+#contacto .cards .card a{
+  color:var(--brand-dark);
+  opacity:.95;
+}
+#contacto .cards .card ul{
+  list-style: disc inside;
+  margin:0; padding:0;
+}
+#contacto .cards .card a{
+  color:var(--brand-blue); text-decoration:underline;
+}
+
+/* Botones en Contacto */
+#contacto .btn-primary{
+  background:#fff; color:#0b1320; border:1px solid #fff; font-weight:700;
+}
+#contacto .btn-ghost{
+  color:#fff; border:2px solid #fff;
+}
+#contacto .btn-ghost:hover{ background:#fff; color:#111; }
+
+/* WhatsApp: estilo verde automático si el enlace es wa.me */
+#contacto a[href^="https://wa.me"]{
+  background-color:#25D366 !important;
+  border-color:#25D366 !important;
+  color:#fff !important;
+}
+
+/* =======================
+   Footer
+   ======================= */
 .footer{ background:var(--brand-dark); color:#fff; padding:18px 0; font-size:13px; }
 .footer-inner{ display:flex; align-items:center; justify-content:space-between; }
 .footer .brand img{ width:24px; height:24px; }
 
-/* Apariciones suaves on-scroll (si usas script reveal) */
+/* =======================
+   Efectos reveal (una sola versión)
+   ======================= */
 .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
 .reveal.show{ opacity:1; transform:none; }
 
 /* =======================
-   RESPONSIVE
+   Responsive
    ======================= */
 @media (max-width:1024px){
   .cards{ grid-template-columns:1fr; }
@@ -180,126 +218,41 @@ section{ scroll-margin-top: calc(var(--header-h) + 12px); }
   .hero h1{ font-size:40px; }
 }
 
-/* ==============
-   FIN DE ARCHIVO
-   ============== */
-
 /*************** ESTILO VISUAL POR SECCIONES ***************/
 
 /* ===== QUIÉNES SOMOS ===== */
-#quienes {
+#quienes{
   background: linear-gradient(180deg, #ffffff 0%, #f5f8ff 100%);
-  color: #0b1320;
+  color:#0b1320;
 }
-#quienes .card {
-  background: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+#quienes .card{
+  background:#fff;
+  transition:transform .3s ease, box-shadow .3s ease;
 }
-#quienes .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+#quienes .card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 /* ===== SERVICIOS ===== */
-#servicios {
-  background: linear-gradient(180deg, #f1f6ff 0%, #e8f2ff 100%);
+#servicios{ background: linear-gradient(180deg, #f1f6ff 0%, #e8f2ff 100%); }
+#servicios .card{
+  background:#fff; border:1px solid #e0ebff;
+  transition:transform .3s ease, box-shadow .3s ease;
 }
-#servicios h2 {
-  color: var(--brand-blue);
-}
-#servicios .card {
-  background: #fff;
-  border: 1px solid #e0ebff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-#servicios .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-/* ===== TARIFAS ===== */
-#tarifas {
-  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
-}
-#tarifas .card {
-  background: #fff;
-  border: 1px solid #e7edf7;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-#tarifas .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-}
-
-/* Precio destacado */
-#tarifas .price {
-  color: var(--brand-blue);
-  font-weight: 800;
-  font-size: 28px;
+#servicios .card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 /* ===== RESULTADOS ===== */
-#resultados {
-  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
-}
-#resultados .card {
-  background: #fff;
-  border: 1px solid #e7edf7;
-}
-#resultados .hero-bars .hero-bar {
-  background: var(--brand-blue);
-  border-radius: 6px;
-}
-#resultados .kpi {
-  background: #fff;
-  border: 1px solid #e6ebf5;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
-}
-#resultados .v {
-  color: var(--brand-blue);
-  font-size: 32px;
-}
+#resultados{ background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%); }
+#resultados .card{ background:#fff; border:1px solid #e7edf7; }
+#resultados .hero-bars .hero-bar{ background: var(--brand-blue); border-radius:6px; }
+#resultados .kpi{ background:#fff; border:1px solid #e6ebf5; box-shadow:0 6px 14px rgba(0,0,0,.04); }
+#resultados .v{ color:var(--brand-blue); font-size:32px; }
 
-/* ===== CONTACTO ===== */
-#contacto {
-  background: linear-gradient(180deg, #0f172a 0%, #0b1320 100%) !important;
-  color: #ffffff !important;
-}
-#contacto .btn-primary {
-  background: #ffffff !important;
-  color: #0b1320 !important;
-  border: none !important;
-  font-weight: 700;
-}
-#contacto .btn-ghost {
-  color: #ffffff;
-  border: 2px solid #ffffff;
-}
-#contacto .btn-ghost:hover {
-  background: #ffffff;
-  color: #111;
-}
-
-/* ===== EFECTOS DE APARICIÓN (reveal) ===== */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===== TRANSICIONES SUAVES ===== */
-.card, .btn, .nav-link {
-  transition: all 0.25s ease-in-out;
-}
-
-/* ===== TIPOGRAFÍA GLOBAL ===== */
-h1, h2, h3 {
-  letter-spacing: 0.3px;
-}
-p.p {
-  color: #374151;
-}
+/* ===== Transiciones suaves globales ===== */
+.card, .btn, .nav-link{ transition: all .25s ease-in-out; }
+h1,h2,h3{ letter-spacing:.3px; }
+p.p{ color:#374151; }
