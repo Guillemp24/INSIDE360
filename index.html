@@ -3,25 +3,43 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>INSIDE360 — Auditoría comercial</title>
+
+  <!-- ✅ SEO y título -->
+  <title>INSIDE360 — Consultoría y auditoría comercial personalizada</title>
+  <meta name="description" content="INSIDE360 es una consultoría comercial moderna que observa, analiza y mejora la ejecución de los equipos de ventas. Ofrecemos shadow selling, análisis de KPIs e implantación de mejoras personalizadas para potenciar resultados reales.">
+
+  <!-- ✅ Favicon y estilos -->
   <link rel="icon" href="assets/logo.svg">
   <link rel="stylesheet" href="style.css">
-  <meta name="description" content="INSIDE360: auditoría comercial moderna. Observamos, analizamos y mejoramos la ejecución real de los equipos de ventas.">
 
-  <!-- Ajustes suaves + parches anti-solape/ocultación -->
+  <!-- ✅ Open Graph / Redes sociales -->
+  <meta property="og:title" content="INSIDE360 — Consultoría y auditoría comercial personalizada">
+  <meta property="og:description" content="Observamos, analizamos y transformamos la realidad comercial de tu equipo con datos reales y acompañamiento estratégico.">
+  <meta property="og:image" content="assets/LOGO INSIDE360.png">
+  <meta property="og:url" content="https://www.inside360.es">
+  <meta property="og:type" content="website">
+
+  <!-- ✅ Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="INSIDE360 — Consultoría y auditoría comercial personalizada">
+  <meta name="twitter:description" content="Consultoría moderna que observa, analiza y mejora la ejecución comercial para generar resultados reales.">
+  <meta name="twitter:image" content="assets/LOGO INSIDE360.png">
+
+  <!-- ✅ Ajustes suaves + parches anti-solape -->
   <style>
     html { scroll-behavior: smooth; }
     section { scroll-margin-top: 90px; }
 
-    /* Kill switch para evitar que nada quede oculto si falta el JS o hay caché del CSS */
+    /* Fallback visual */
     .reveal { opacity: 1 !important; transform: none !important; }
     .hero { background-attachment: scroll !important; position: relative !important; z-index: 0 !important; }
-    body::before { content: none !important; } /* por si en el pasado hubo fondo fijo global */
-    #quienes, #servicios, #tarifas, #resultados, #contacto, .section {
+    body::before { content: none !important; }
+    #quienes, #servicios, #resultados, #contacto, .section {
       position: relative !important; z-index: 1 !important;
     }
   </style>
 </head>
+
 <body>
 
 <header class="site-header">
@@ -62,12 +80,11 @@
     <div class="cta">
       <a class="btn btn-primary" href="#contacto">Solicitar diagnóstico</a>
       <a class="btn btn-primary" href="#servicios">Servicios que desempeñamos</a>
-      <a class="btn btn-ghost" href="#tarifas">Tarifas</a>
     </div>
   </div>
 </section>
 
-<!-- ✅ QUIÉNES SOMOS (ampliado) -->
+<!-- ✅ QUIÉNES SOMOS + ENFOQUE -->
 <section id="quienes" class="section">
   <div class="container center reveal">
     <h2 class="h2">Quiénes somos</h2>
@@ -75,156 +92,58 @@
       INSIDE360 es una auditoría comercial que observa la <strong>realidad operativa</strong> de tu equipo en campo,
       la convierte en <strong>datos accionables</strong> y acompaña la implantación de mejoras para mover el negocio.
     </p>
-    <section id="enfoque" class="section alt">
-  <div class="container center reveal">
-    <h2 class="h2">Un aliado, no un reemplazo</h2>
-    <p class="p">
-      INSIDE360 nace para reforzar el trabajo del director comercial, no para sustituirlo.  
-      Sabemos que nadie conoce mejor el negocio, el equipo y la estrategia que él.  
-      Nuestra función es aportar <strong>visión externa y datos objetivos</strong> que le ayuden a
-      <strong>defender decisiones, priorizar esfuerzos</strong> y <strong>mejorar resultados</strong> sin fricciones internas.
-    </p>
 
-    <div class="cards" style="margin-top:32px">
-      <div class="card">
-        <span class="icon bg-teal"></span>
-        <h3>Complementamos, no auditamos</h3>
-        <p class="p">Ofrecemos una mirada externa para detectar patrones que desde dentro son difíciles de ver.</p>
+    <section id="enfoque" class="section alt">
+      <div class="container center reveal">
+        <h2 class="h2">Un aliado, no un reemplazo</h2>
+        <p class="p">
+          INSIDE360 nace para reforzar el trabajo del director comercial, no para sustituirlo.  
+          Nuestra función es aportar <strong>visión externa y datos objetivos</strong> que le ayuden a
+          <strong>defender decisiones, priorizar esfuerzos</strong> y <strong>mejorar resultados</strong> sin fricciones internas.
+        </p>
+
+        <div class="cards" style="margin-top:32px">
+          <div class="card"><span class="icon bg-teal"></span><h3>Complementamos, no auditamos</h3><p class="p">Ofrecemos una mirada externa para detectar patrones que desde dentro son difíciles de ver.</p></div>
+          <div class="card"><span class="icon bg-blue"></span><h3>Decisiones con datos</h3><p class="p">Convertimos la intuición del director comercial en argumentos sólidos para la dirección.</p></div>
+          <div class="card"><span class="icon bg-accent"></span><h3>Sin interferir en su liderazgo</h3><p class="p">Respetamos la estructura y los procesos internos: el protagonismo siempre es suyo.</p></div>
+        </div>
       </div>
-      <div class="card">
-        <span class="icon bg-blue"></span>
-        <h3>Decisiones con datos</h3>
-        <p class="p">Convertimos la intuición del director comercial en argumentos sólidos para la dirección.</p>
-      </div>
-      <div class="card">
-        <span class="icon bg-accent"></span>
-        <h3>Sin interferir en su liderazgo</h3>
-        <p class="p">Respetamos la estructura y los procesos internos: el protagonismo siempre es suyo.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <div class="cards" style="margin-top:34px">
-      <div class="card">
-        <span class="icon bg-blue"></span>
-        <h3>Enfoque 360º</h3>
-        <p class="p">Personas, procesos y datos. Miramos la foto completa para priorizar lo que más impacto genera.</p>
-      </div>
-      <div class="card">
-        <span class="icon bg-teal"></span>
-        <h3>Dato + ejecución</h3>
-        <p class="p">Del hallazgo a la acción: métricas claras, responsables y fechas. Nada de informes para el cajón.</p>
-      </div>
-      <div class="card">
-        <span class="icon bg-accent"></span>
-        <h3>Resultados medibles</h3>
-        <p class="p">Eficiencia, tasa de cierre, ROAS… siempre con línea base y evolución semana a semana.</p>
-      </div>
-    </div>
-
-    <div class="grid-2" style="margin-top:34px">
-      <div class="card">
-        <h3>Cómo trabajamos</h3>
-        <ul class="p" style="text-align:left; margin:0; padding-left:18px">
-          <li><strong>1. Observación</strong> en campo (shadow selling) y mapeo de procesos reales.</li>
-          <li><strong>2. Análisis</strong> de KPIs, cuellos de botella y palancas de impacto.</li>
-          <li><strong>3. Plan de acción</strong> priorizado, responsable y calendario.</li>
-          <li><strong>4. Implantación y seguimiento</strong> hasta consolidar el cambio.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Por qué INSIDE360</h3>
-        <ul class="p" style="text-align:left; margin:0; padding-left:18px">
-          <li>Hablamos negocio: impacto en ingresos y coste por venta.</li>
-          <li>Trabajamos con datos reales, no con guiones ideales.</li>
-          <li>Equipo cercano, ritmo semanal y entregables claros.</li>
-        </ul>
-      </div>
+      <div class="card"><span class="icon bg-blue"></span><h3>Enfoque 360º</h3><p class="p">Personas, procesos y datos. Miramos la foto completa para priorizar lo que más impacto genera.</p></div>
+      <div class="card"><span class="icon bg-teal"></span><h3>Dato + ejecución</h3><p class="p">Del hallazgo a la acción: métricas claras, responsables y fechas. Nada de informes para el cajón.</p></div>
+      <div class="card"><span class="icon bg-accent"></span><h3>Resultados medibles</h3><p class="p">Eficiencia, tasa de cierre, ROAS… siempre con línea base y evolución semana a semana.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ✅ SERVICIOS (versión ampliada sin tarifas) -->
+<!-- ✅ SERVICIOS -->
 <section id="servicios" class="section alt">
   <div class="container">
     <div class="center"><h2 class="h2">Servicios INSIDE360</h2></div>
     <p class="p center" style="max-width:820px;margin:auto">
-      Diseñamos cada auditoría comercial de forma <strong>totalmente personalizada</strong>, adaptando el nivel de profundidad, el número de jornadas y el formato de acompañamiento a la realidad de cada empresa.
-      No trabajamos con tarifas cerradas: trabajamos con <strong>resultados medibles</strong>.
+      Diseñamos cada auditoría comercial de forma <strong>totalmente personalizada</strong>, adaptando el nivel de profundidad y formato de acompañamiento a la realidad de cada empresa.
     </p>
 
     <div class="cards" style="margin-top:34px">
-      <div class="card reveal">
-        <span class="icon bg-teal"></span>
-        <h3>Shadow Selling</h3>
-        <p class="p">
-          Acompañamiento real a vendedores en su día a día —visitas, llamadas, presentaciones— para detectar fricciones, patrones de comportamiento y oportunidades de mejora que desde dentro suelen pasar desapercibidas.
-        </p>
-        <ul class="p" style="text-align:left;padding-left:18px;margin:0;">
-          <li>Observación directa y feedback inmediato.</li>
-          <li>Mapa de objeciones y lenguaje comercial.</li>
-          <li>Informe práctico con quick wins de impacto inmediato.</li>
-        </ul>
-      </div>
-
-      <div class="card reveal">
-        <span class="icon bg-blue"></span>
-        <h3>Análisis & KPIs</h3>
-        <p class="p">
-          Transformamos observaciones y datos dispersos en <strong>métricas claras</strong> y visuales.  
-          Paneles comparativos que miden eficiencia, tasa de cierre, coste por venta y cobertura comercial.
-        </p>
-        <ul class="p" style="text-align:left;padding-left:18px;margin:0;">
-          <li>Diseño de indicadores clave (KPIs) adaptados al sector.</li>
-          <li>Informe ejecutivo con hallazgos y prioridades.</li>
-          <li>Presentación a dirección comercial y general.</li>
-        </ul>
-      </div>
-
-      <div class="card reveal">
-        <span class="icon bg-accent"></span>
-        <h3>Implantación & Seguimiento</h3>
-        <p class="p">
-          No nos quedamos en el diagnóstico: acompañamos la implantación de cambios concretos y medimos su impacto real.
-        </p>
-        <ul class="p" style="text-align:left;padding-left:18px;margin:0;">
-          <li>Formación práctica y role plays personalizados.</li>
-          <li>Seguimiento semanal y apoyo en la gestión de equipos.</li>
-          <li>Evaluación de resultados y reajuste de procesos.</li>
-        </ul>
-      </div>
-
-      <div class="card reveal">
-        <span class="icon bg-blue"></span>
-        <h3>Auditoría Integral 360°</h3>
-        <p class="p">
-          El servicio más completo de INSIDE360: una visión total de la actividad comercial desde la estrategia hasta la ejecución.  
-          Integra observación, datos, consultoría y seguimiento en un mismo proyecto.
-        </p>
-        <ul class="p" style="text-align:left;padding-left:18px;margin:0;">
-          <li>Shadow selling + análisis de KPIs + implantación.</li>
-          <li>Dashboard interactivo y plan de acción priorizado.</li>
-          <li>Presentación final con resultados y recomendaciones.</li>
-        </ul>
-      </div>
+      <div class="card reveal"><span class="icon bg-teal"></span><h3>Shadow Selling</h3><p class="p">Acompañamiento real a vendedores en su día a día para detectar fricciones y oportunidades de mejora.</p></div>
+      <div class="card reveal"><span class="icon bg-blue"></span><h3>Análisis & KPIs</h3><p class="p">Transformamos observaciones en <strong>métricas claras</strong> y paneles que miden eficiencia y cobertura.</p></div>
+      <div class="card reveal"><span class="icon bg-accent"></span><h3>Implantación & Seguimiento</h3><p class="p">Acompañamos la implantación de cambios concretos y medimos su impacto real.</p></div>
+      <div class="card reveal"><span class="icon bg-blue"></span><h3>Auditoría Integral 360°</h3><p class="p">Visión total de la actividad comercial desde estrategia hasta ejecución.</p></div>
     </div>
 
     <div class="center" style="margin-top:50px;">
-      <p class="p" style="max-width:760px;margin:0 auto 24px;">
-        Cada empresa tiene un punto de partida diferente.  
-        Cuéntanos tu situación y diseñaremos un diagnóstico a medida, sin compromiso.
-      </p>
+      <p class="p" style="max-width:760px;margin:0 auto 24px;">Cuéntanos tu situación y diseñaremos un diagnóstico a medida, sin compromiso.</p>
       <a class="btn btn-primary" href="#contacto">Solicitar información personalizada</a>
     </div>
   </div>
 </section>
 
-<!-- ✅ RESULTADOS (ampliado) -->
+<!-- ✅ RESULTADOS -->
 <section id="resultados" class="section">
   <div class="container">
     <div class="center"><h2 class="h2">Resultados</h2></div>
-
     <div class="grid-2" style="margin-top:10px">
       <div class="card reveal">
         <div class="hero-bars" style="height:190px">
@@ -233,9 +152,7 @@
           <div class="hero-bar" style="height:160px"></div>
           <div class="hero-bar" style="height:200px"></div>
         </div>
-        <p class="p" style="margin:12px 0 0">
-          Evolución típica tras 8–12 semanas: más cobertura, menos fricción por etapa y mayor velocidad de cierre.
-        </p>
+        <p class="p" style="margin:12px 0 0">Evolución típica tras 8–12 semanas: más cobertura, menos fricción y mayor velocidad de cierre.</p>
       </div>
 
       <div class="kpis">
@@ -244,49 +161,15 @@
         <div class="kpi reveal"><div class="v">-30%</div><div>Incidencias operativas</div></div>
       </div>
     </div>
-
-    <div class="cards" style="margin-top:26px">
-      <div class="card reveal">
-        <h3>Qué cambia</h3>
-        <ul class="p" style="margin:0; padding-left:18px">
-          <li>Guiones y materiales alineados a objeciones reales</li>
-          <li>Handoffs sin fugas entre marketing ↔ ventas ↔ operaciones</li>
-          <li>Rituales semanales con foco en 3 palancas clave</li>
-        </ul>
-      </div>
-      <div class="card reveal">
-        <h3>Cómo lo medimos</h3>
-        <ul class="p" style="margin:0; padding-left:18px">
-          <li>Dashboard con línea base y evolución por semana</li>
-          <li>KPIs por etapa y cohortes por canal</li>
-          <li>ROI de acciones y desglose de impacto</li>
-        </ul>
-      </div>
-      <div class="card reveal">
-        <h3>Plazos orientativos</h3>
-        <ul class="p" style="margin:0; padding-left:18px">
-          <li>Semana 1–2: observación y diagnóstico</li>
-          <li>Semana 3–6: implantación y quick wins</li>
-          <li>Semana 7+: optimización y escalado</li>
-        </ul>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- ✅ CONTACTO (ampliado) -->
+<!-- ✅ CONTACTO -->
 <section id="contacto" class="section contact">
   <div class="container center reveal">
     <h2 class="h2" style="color:#fff">Contacto</h2>
-    <p class="p" style="color:#eaf6ff">
-      ¿Hablamos? • <a href="mailto:contacto@insideviewconsulting.com" style="color:#fff;text-decoration:underline">contacto@insideviewconsulting.com</a>
-      • +34 600 000 000 • https://inside-360-git-main-guilles-projects-065b9381.vercel.app/#inicio
-    </p>
-
-    <div class="cta" style="margin-top:10px">
-      <a class="btn btn-primary" href="mailto:contacto@insideviewconsulting.com">Solicitar diagnóstico</a>
-      <a class="btn btn-ghost" href="#tarifas" style="border-color:#fff">Ver tarifas</a>
-    </div>
+    <p class="p" style="color:#eaf6ff">¿Hablamos? • <a href="mailto:contacto@insideviewconsulting.com" style="color:#fff;text-decoration:underline">contacto@insideviewconsulting.com</a> • +34 600 000 000</p>
+    <a class="btn btn-primary" href="mailto:contacto@insideviewconsulting.com">Solicitar diagnóstico</a>
   </div>
 </section>
 
@@ -305,9 +188,8 @@
   </div>
 </footer>
 
-<!-- ✅ Script inline: menú móvil + reveal + ajuste de hero -->
+<!-- ✅ Script inline -->
 <script>
-  // Menú móvil
   (function () {
     const toggle = document.querySelector('.nav-toggle');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -317,28 +199,16 @@
     }
   })();
 
-  // Mostrar .reveal (animado si se puede; si no, visibles ya)
   (function () {
     const els = document.querySelectorAll('.reveal');
-
-    // Fallback inmediato: visibles por si algo falla
     els.forEach(el => el.classList.add('show'));
-
     if (!('IntersectionObserver' in window)) return;
-
     const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add('show');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
-
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
     els.forEach(el => io.observe(el));
   })();
 
-  // Evitar que el hero tape secciones: compensa la altura real del header
   (function () {
     const hero = document.querySelector('.hero');
     const header = document.querySelector('.site-header');
@@ -351,3 +221,4 @@
 
 </body>
 </html>
+
